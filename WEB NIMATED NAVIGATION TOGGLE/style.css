@@ -1,0 +1,97 @@
+@import url("reset.css");
+body{
+    background-color: #3b6da5;
+    font: 21px/22px 'Tahoma', sans-serif;
+    color: white;
+    font-weight: 500;
+}
+*{
+    text-decoration: none;
+    color:white;
+    list-style-type: none;
+}
+h1{
+    z-index: 1000;
+}
+.header-toggle{
+    width: 93%;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    display: -webkit-flex;
+    -webkit-flex-direction: column;
+}
+.menu-toggle{
+    display: flex;
+    justify-content: space-between;
+}
+.toggle-button{
+    cursor: pointer;
+}
+.toggle-button div{
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(.13,.24,.35,1.64);
+    background-color:white;
+    width: 50px;
+    height: 8px;
+    border-radius: 3px;
+    margin: 6px 6px;
+}
+.header-toggle ul{
+    position: absolute;
+    top: -30%;
+    left: 45%;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out;
+    z-index: 2000;
+}
+.container-menu::before, .container-menu::after{
+    position: absolute;
+    top: 0;
+    background-color: rgb(190, 81, 118);
+    content: "";
+    height: 350px;
+    width: 0px;
+    transition-timing-function: ease-in-out;
+    transition-duration: 200ms;
+    z-index: 3;
+}
+.container-menu::before{
+    left: 0;
+}
+
+.container-menu::after{
+    right:  0;
+}
+/* ************* Element toggle active *********** */
+.active .toggle-button{
+    z-index: 1000;
+}
+.toggle-element.active .one{
+    transform: rotate(45deg);
+    width: 65px;
+}
+.toggle-element.active .three{
+    transform: rotate(-45deg)
+    translate(0px, 0px);
+    width: 65px;
+}
+.toggle-element.active .two{
+    background-color: transparent;
+    transform: translate(-25px, 0px);
+}
+.active.container-menu::after, .active.container-menu::before{
+    width: 400px;
+} 
+.active.header-toggle ul{
+    top: 0%;
+    transition-delay: 560ms;
+    transition-duration: 240ms;
+    transition-timing-function: cubic-bezier(.1, .2, .3, 1.4);
+    z-index: 1000;
+}
+.active .main-content{
+    opacity: 0;
+    transition-duration: 1000ms;
+}

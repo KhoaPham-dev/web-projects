@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WEB Tip Calculator</title>
+	<link rel="stylesheet" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<h1>TIP CALCULATOR</h1>
+		<form>
+		<div class="second-part">
+			<div class="first-question">
+				<p>How much was your bill?</p>
+				$ <input  id="bill" type="text" name="bill"placeholder=" Bill Amount " required>
+			</div>
+			<div class="second-question">
+				<p>How was your service?</p>
+				<select required id="service"  name="service">
+					<option value="" disabled selected>-- Choose an Option --</option>
+					<option value="30">30% - Outstanding</option>
+					<option value="20">20% - Good</option>
+					<option value="15">15% - It was OK</option>
+					<option value="10">10% - Bad</option>
+					<option value="5">5% - Terrible</option>
+				</select>
+			</div>
+			<div class="third-question">
+				<p>How many people are sharing the bill?</p>
+				<input id="people" type="text" placeholder="Number of people" required> people
+			</div>
+		</div>
+		<button id="button" type="button">CALCULATE!</button>
+	</form>
+	<div id="total-tip">
+		<sup>$</sup><span id="total">0.00</span>
+		<small>each</small>
+	</div>
+	</div>
+
+	<script type="text/javascript" src="script.js"></script>
+</body>
+</html>

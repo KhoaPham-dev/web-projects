@@ -1,0 +1,85 @@
+<html>
+    <head>
+        <title>WEB To-Do-List Pushbar</title>
+        <link rel="stylesheet" href="../pushbar.js-master/pushbar.js-master/pushbar/pushbar.css">
+        <link rel="stylesheet" href="../pushbar.js-master/pushbar.js-master/demo.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="clock">
+            <span></span>
+        </div>
+        <div class="for-pushbar">
+            <div data-pushbar-id="mypushbar1" class="pushbar from_left">
+               	Push bar content 1
+
+               	<button data-pushbar-close>Close</button>
+            </div>
+
+            <div data-pushbar-id="mypushbar2" class="pushbar from_bottom">
+               	Push bar content 2
+
+               	<button data-pushbar-close>Close</button>
+            </div>
+
+            <div data-pushbar-id="mypushbar3" class="pushbar from_right">
+               	Push bar content 3
+
+               	<button data-pushbar-close>Close</button>
+            </div>
+
+            <div data-pushbar-id="mypushbar4" class="pushbar from_top">
+               	Push bar content 4
+
+               	<button data-pushbar-close>Close</button>
+            </div>
+
+            <div class="pushbar_main_content">
+           	    Main content of the page
+
+               	<button data-pushbar-target="mypushbar1">
+               	Open my pushbar 1
+               	</button>
+
+               	<button data-pushbar-target="mypushbar2">
+               	Open my pushbar 2
+               	</button>
+
+                <button data-pushbar-target="mypushbar3">
+                Open my pushbar 3
+                </button>
+
+                <button data-pushbar-target="mypushbar4">
+                Open my pushbar 4
+                </button>
+            </div>
+        </div>
+        <div class="container">
+            <h1>WORK TO-DOS</h1>
+            <h3>Enter text into the input field to add items to your list.</h3>
+            <h3>Click the item to mark it as complete.</h3>
+            <h3>Click the "X" to remove the item from your list.</h3>
+            <div class="input-item">
+                <input id="input" type="text" placeholder="New item..." maxlength="27">
+                <button id="button"></button>
+            </div>
+            <div id="new-items">
+                <ul id="items">
+                </ul>
+            </div>
+        </div>
+        <script src="../pushbar.js-master/pushbar.js-master/pushbar/pushbar.js"></script>
+        <script type="text/javascript">
+              var pushbar = new Pushbar({
+               	blur:true,
+               	overlay:true,
+              });
+            //open a pushbar
+            pushbar.open('mypushbar1');	
+            //close all pushbars
+            pushbar.close();
+        </script>
+        <script src="script.js"></script>
+        <script src="../Clock/clock.js"></script>
+    </body>
+</html>

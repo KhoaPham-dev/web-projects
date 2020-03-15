@@ -1,0 +1,45 @@
+<html>
+<head>
+  <title>Đăng nhập</title>
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css" />
+  <meta charset="utf-8"> 
+</head>
+<body>
+
+  <div id="login_div" class="main-div">
+    <h3>Đăng nhập</h3>
+    <form>
+      <input type="email" placeholder="Email..." id="email_field" />
+      <input type="password" placeholder="Password..." id="password_field" />
+      <button type="submit" id="login-button">Okieee híhí</button>
+    </form>
+    <p><a href="../sign-up/index.html">Chưa đăng ký hả? Click dô đây nè bạn Nga=)))</a></p>
+    <p><a href="../index.html"> <-- Về trang chủ </a></p>
+  </div>
+
+
+    
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-firestore.js"></script>
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCrlnDp7_MnSX-we70ZQGeRgHL2LltpI7Y",
+    authDomain: "englishvocab-d87c4.firebaseapp.com",
+    databaseURL: "https://englishvocab-d87c4.firebaseio.com",
+    projectId: "englishvocab-d87c4",
+    storageBucket: "englishvocab-d87c4.appspot.com",
+    messagingSenderId: "1074378769766",
+    appId: "1:1074378769766:web:43d6888abab77c405e74a7"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  var db = firebase.firestore();
+</script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="./index.js"></script>
+</body>
+</html>

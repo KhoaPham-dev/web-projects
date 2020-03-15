@@ -1,0 +1,86 @@
+@import url("reset.css");
+body{
+    background-color: #8E0E00;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+}
+.container{
+    border-radius: 20px;
+    background-color: #f7f7f7;
+    width: 480px;
+    margin: auto;
+    font-size: 1.5em;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+}
+h1{
+    text-align: center;
+    background: #1F030C;
+    border-radius: 20px 20px 0 0;
+    font-size: 2rem;
+    color: white;
+    padding: 10px 0;
+    /* border: solid 3px black; */
+}
+.second-part{
+    margin-left: 15px;
+}
+input[name="bill"]{
+    width: 45%;
+}
+input[name="bill"]::placeholder{
+    padding-left: 10px;
+}
+input:focus{
+    border: solid 1px #59b6eb;
+}
+input, select{
+    height: 35px;
+}
+
+.third-question input{
+    width: 70%;
+}
+
+.second-question select{
+    width: 70%;
+    margin: 0 12%;
+    height: 50px;
+    font-size: 1.8rem;
+    font-weight: 600;
+    /* border: solid 1px black; */
+}
+
+#button{
+    background-color:#F9144C;
+    font-size: 1.8rem;
+    width: 50%;
+    height: 2.2em;
+    border: none;
+    margin: 30px 25% 5% 25%;
+    border-radius: 5px;
+    font-weight: 700;
+    color: white;
+}
+#button:hover{
+    background-color: grey;
+}
+#button:active{
+    position: relative;
+    top: 1px;
+}
+#total-tip{
+    text-align: center;
+    font-size: 24px;
+    padding-bottom: 10px;
+}
+#total-tip::before{
+    content: "Amount Tip";
+    text-transform: uppercase;
+    display: block;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+#total-tip small{
+    font-size: 28px;
+    display: block;
+}
