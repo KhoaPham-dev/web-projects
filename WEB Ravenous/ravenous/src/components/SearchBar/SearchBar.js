@@ -41,11 +41,8 @@ class SearchBar extends React.Component{
             return <li className={this.getSortByClass(sortByOptionValue)} onClick={this.handleSortByChange.bind(this, sortByOptionValue)} key={sortByOptionValue}>{sortByOption}</li>
         })
     }
-    searchYelp(term, location, sortBy){
-        console.log(`Searching Yelp with ${term}, ${location}, ${sortBy}`);
-    }
     handleSearch(e){
-        this.searchYelp(this.state.term, this.state.location, this.state.sortBy);
+        this.props.searchYelp(this.state.term, this.state.location, this.state.sortBy);
         e.preventDefault();
     }
     render(){
