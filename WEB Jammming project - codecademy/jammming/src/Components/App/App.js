@@ -12,16 +12,18 @@ class App extends React.Component{
       searchResults: [
         {
           name: "",
-          artist: "",
-          album: "",
-          id: ""
+          artists: [{name: ""}],
+          album: {name: ""},
+          id: "",
+          uri:""
         }
       ],
       playlistTracks: [{
-        name: "em cua ngay hom qua",
-        artist: "sontungmtp",
-        album: "kkkk",
-        id: "18110"
+        name: "",
+          artists: [{name: ""}],
+          album: {name: ""},
+          id: "",
+          uri:""
       }],
       playlistName: "dcdc"
     }
@@ -39,9 +41,10 @@ class App extends React.Component{
     let newPlayListTracks = this.state.playlistTracks;
     newPlayListTracks.push({
       name: track.name,
-        artist: track.artist,
+        artists: track.artists,
         album: track.album,
-        id: track.id
+        id: track.id,
+        uri: track.uri
     })
     this.setState({
       playlistTracks: newPlayListTracks
@@ -50,7 +53,7 @@ class App extends React.Component{
 
   removeTrack(track){
     let newPlayListTracks = this.state.playlistTracks;
-    let indexOfTrack = newPlayListTracks.indexOf(track.id);
+    let indexOfTrack = newPlayListTracks.findIndex(element=>element.id === track.id);
     newPlayListTracks.splice(indexOfTrack, 1);
     this.setState({
       playlistTracks: newPlayListTracks
@@ -67,9 +70,9 @@ class App extends React.Component{
     let trackURIs = this.state.playlistTracks.uri;
   }
 
-  search(term){
+  async search(term){
     this.setState({
-      searchResults: Spotify.search(term)
+      searchResults: await Spotify.search(term)
     }) 
   }
   componentWillMount(){
