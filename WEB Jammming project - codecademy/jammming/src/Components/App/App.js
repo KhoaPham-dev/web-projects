@@ -18,14 +18,15 @@ class App extends React.Component{
           uri:""
         }
       ],
-      playlistTracks: [{
-        name: "",
-          artists: [{name: ""}],
-          album: {name: ""},
-          id: "",
-          uri:""
+      playlistTracks: 
+      [{
+        // name: "",
+        //   artists: [{name: ""}],
+        //   album: {name: ""},
+        //   id: "",
+        //   uri:""
       }],
-      playlistName: "dcdc"
+      playlistName: ""
     }
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
@@ -39,25 +40,46 @@ class App extends React.Component{
       return;
     }
     let newPlayListTracks = this.state.playlistTracks;
-    newPlayListTracks.push({
-      name: track.name,
-        artists: track.artists,
-        album: track.album,
-        id: track.id,
-        uri: track.uri
-    })
-    this.setState({
-      playlistTracks: newPlayListTracks
-    })
+    if(newPlayListTracks[0].name){
+      newPlayListTracks.push({
+        name: track.name,
+          artists: track.artists,
+          album: track.album,
+          id: track.id,
+          uri: track.uri
+      })
+      this.setState({
+        playlistTracks: newPlayListTracks
+      })
+    }
+    else {
+      this.setState({
+        playlistTracks: [{
+          name: track.name,
+          artists: track.artists,
+          album: track.album,
+          id: track.id,
+          uri: track.uri
+        }]
+      })
+    }
+    
   }
 
   removeTrack(track){
     let newPlayListTracks = this.state.playlistTracks;
     let indexOfTrack = newPlayListTracks.findIndex(element=>element.id === track.id);
     newPlayListTracks.splice(indexOfTrack, 1);
-    this.setState({
-      playlistTracks: newPlayListTracks
-    })
+    if(newPlayListTracks[0]){
+      this.setState({
+        playlistTracks: newPlayListTracks
+      })
+    }
+    else {
+      this.setState({
+        playlistTracks: [{}]
+      })
+    }
   }
 
   updatePlaylistName(name){
@@ -67,7 +89,11 @@ class App extends React.Component{
   }
 
   savePlaylist(){
-    let trackURIs = this.state.playlistTracks.uri;
+    let trackURIs = this.state.playlistTracks.map((track)=>{
+      return track.uri;
+    });
+    let playlistName = this.state.playlistName ? this.state.playlistName : "New Playlist";
+    Spotify.savePlaylist(playlistName, trackURIs);
   }
 
   async search(term){

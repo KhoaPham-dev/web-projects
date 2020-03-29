@@ -20,13 +20,15 @@ export class Track extends React.Component{
     }
     render(){
         return (
-            <div className="Track">
-                <div className="Track-information">
+                this.props.track !== null ?
+                <div className="Track">
+                    <div className="Track-information">
                     <h3>{this.props.track.name}</h3>
                     <p>{this.props.track.artists[0].name} | {this.props.track.album.name}</p>
+                    </div>
+                    {this.props.track.name ? this.renderAction() : null}
                 </div>
-                {this.renderAction()}
-            </div>
+                : null
         )
     }
 }
