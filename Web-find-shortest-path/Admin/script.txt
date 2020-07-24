@@ -1,0 +1,3 @@
+- Reset db:
+db.dataPath.remove({})
+db.dataPath.insertOne({_id:1, path: [], vertexs: [], width: 0, height: 0,information:[]})
